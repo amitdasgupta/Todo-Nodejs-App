@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title%></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="css/home.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id='todo'>
+            <header>
+                <%= title%>
+            </header>
+            <section id='todo-description'>
+                <label for="description">DESCRIPTION</label>
+                <input type="text" name="description" id="description" required placeholder="What do you need to do?">
+            </section>
+            <section id='todo-details'>
+                <div>
+                    <label for="todo-details-category">CATEGORY</label>
+                     <select id="todo-details-category">
+                         <option value="" disabled selected>Choose a category</option>
+                         <option value="personal">Personal</option>
+                         <option value="work">Work</option>
+                         <option value="office">Office</option>
+                         <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="todo-details-date">DUE DATE</label>
+                    <input type="date" name="date" value="">
+                </div>
+            </section>
+            <section id='todo-operations'>
+                    <button id='todo-operations-add'>
+                    <i class="fas fa-plus"></i>
+                    ADD TASK</button>
+                    <button id='todo-operations-delete'>
+                    <i class="fas fa-trash-alt"></i>
+                    DELETE TASKS</button>
+            </section>
+            <section id='todo-list'>
+                <div class='todo-list-item'>
+                     <div>
+                         <input type="checkbox" name="" value="">
+                     </div>
+                     <div>
+                         <div>Why not add a task?</div>
+                         <div>
+                             <i class="far fa-calendar-alt"></i>
+                             <div>August 20,2019</div>
+                         </div>
+                     </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
