@@ -126,6 +126,11 @@ body{
 }
 
 .todo-list-item>div:first-child{
+    display: flex;
+    width:80%;
+}
+
+.todo-list-item>div:first-child>div:first-child{
     width: 14px;
     margin-right: 2.5%;
     height: 14px;
@@ -134,13 +139,13 @@ body{
     border: 1.5px solid grey;
 }
 
-.todo-list-item>div:last-child>div:first-child{
+.todo-list-item>div:first-child>div:last-child>div:first-child{
     font-size: 1.2rem;
     color: #8d8889;
     font-weight: bold;
 }
 
-.todo-list-item>div:last-child>div:last-child{
+.todo-list-item>div:first-child>div:last-child>div:last-child{
     font-size: 1.1rem;
     display: flex;
     color: #b3bab5;
@@ -148,6 +153,15 @@ body{
     margin-top: 4px;
 }
 
-.todo-list-item>div:last-child>div:last-child>i{
+.todo-list-item>div:first-child>div:last-child>div:last-child>i{
     margin-right: 10px;
+}
+
+.todo-list-item>div:last-child{
+    font-size: 2rem;
+    padding: 10px 25px;
+    color: white;
+    font-family: monospace;
+    border-radius: 5px;
+    background-color: #ffad34;
 }
