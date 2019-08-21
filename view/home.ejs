@@ -12,6 +12,7 @@
             <header>
                 <%= title%>
             </header>
+            <form onsubmit="return onSubmitForm();" method="post" name="myform">
             <section id='todo-description'>
                 <label for="description">DESCRIPTION</label>
                 <input type="text" name="description" id="description" required placeholder="What do you need to do?">
@@ -19,7 +20,7 @@
             <section id='todo-details'>
                 <div>
                     <label for="todo-details-category">CATEGORY</label>
-                     <select id="todo-details-category">
+                     <select id="todo-details-category" name="category">
                          <option value="" disabled selected>Choose a category</option>
                          <option value="personal">Personal</option>
                          <option value="work">Work</option>
@@ -32,14 +33,20 @@
                     <input type="date" name="date" value="" id="todo-details-date">
                 </div>
             </section>
+
+<%# buttons deciding what to be done %>
+
             <section id='todo-operations'>
-                    <button id='todo-operations-add'>
+                    <button id='todo-operations-add' type="submit" value="add"
+                    onclick="document.pressed=this.value">
                     <i class="fas fa-plus"></i>
                     ADD TASK</button>
-                    <button id='todo-operations-delete'>
+                    <button id='todo-operations-delete' type="submit" value="delete"
+                    onclick="document.pressed=this.value">
                     <i class="fas fa-trash-alt"></i>
                     DELETE TASKS</button>
             </section>
+            </form>
             <section id='todo-list'>
                 <div class='todo-list-item'>
                      <div>
@@ -55,5 +62,9 @@
                 </div>
             </section>
         </div>
+    <script src="./js/home.js">
+        
+    </script>
     </body>
 </html>
+

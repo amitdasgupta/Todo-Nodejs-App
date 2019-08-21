@@ -7,4 +7,7 @@ console.log('router loaded');
 
 router.get('/',homeController.home);
 
+router.post('/add',homeController.add);
+router.post('/delete',homeController.delete);
+
 module.exports=router;
