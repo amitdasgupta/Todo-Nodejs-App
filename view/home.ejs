@@ -12,7 +12,6 @@
             <header>
                 <%= title%>
             </header>
-            <form onsubmit="return onSubmitForm();" method="post" name="myform">
             <section id='todo-description'>
                 <label for="description">DESCRIPTION</label>
                 <input type="text" name="description" id="description" required placeholder="What do you need to do?">
@@ -25,6 +24,9 @@
                          <option value="personal">Personal</option>
                          <option value="work">Work</option>
                          <option value="office">Office</option>
+                         <option value="family">Family</option>
+                         <option value="trips">trips</option>
+                         <option value="meetings">Meetings</option>
                          <option value="other">Other</option>
                     </select>
                 </div>
@@ -37,11 +39,11 @@
 <%# buttons deciding what to be done %>
 
             <section id='todo-operations'>
-                    <button id='todo-operations-add' type="submit" value="add"
+                    <button id='todo-operations-add' value="add"
                     onclick="document.pressed=this.value">
                     <i class="fas fa-plus"></i>
                     ADD TASK</button>
-                    <button id='todo-operations-delete' type="submit" value="delete"
+                    <button id='todo-operations-delete' value="delete"
                     onclick="document.pressed=this.value">
                     <i class="fas fa-trash-alt"></i>
                     DELETE TASKS</button>

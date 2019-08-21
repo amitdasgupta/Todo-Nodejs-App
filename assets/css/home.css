@@ -17,12 +17,12 @@ body{
     font-size: 2.5rem;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 2px;
+    padding-bottom: 5px;
     border-bottom: 1.5px solid #efefef;
 }
 
 #todo-description{
-    margin-top: 5px;
+    padding-top: 5px;
     padding-left: 2%;
     display: flex;
     flex-direction: column;
@@ -69,6 +69,10 @@ body{
     font-size: 1.2rem;
     margin-left: -3%;   
     color: grey;
+}
+
+#todo-details-category>option{
+    background-color: white  !important;
 }
 
 #todo-details>div:last-child{
@@ -177,4 +181,31 @@ body{
     font-family: monospace;
     border-radius: 5px;
     background-color: #ffad34;
+    text-transform: uppercase;
+}
+
+/* classes for different category */
+
+.work{
+    background-color: #2a1a45;
+}
+
+.office{
+    background-color: #080201;
+}
+
+.family{
+    background-color: #2280cb;
+}
+
+.trips{
+    background-color: #009688;
+}
+
+.meetings{
+    background-color: #8BC34A;
+}
+
+.other{
+    background-color: #698898;
 }
