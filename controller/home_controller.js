@@ -1,8 +1,15 @@
 const Todo=require('../model/todo');
 
 module.exports.home=function(req,res){
-      return res.render('home',{
-          title:'TODO App'
+      Todo.find({},function(err,todo){
+          if(err){
+              console.log('error fetching data');
+              return;
+          }
+          return res.render('home',{
+              title:'TODO App',
+              todo_list:todo
+          })
       });
 };
 
@@ -18,10 +25,22 @@ module.exports.add=function(req,res){
         }
         console.log('*************',newTodo);
     });
-    return res.redirect('back');
+    Todo.find({},function(err,todo){
+        if(err){
+            console.log('error fetching data',err);
+            return;
+        }
+        return res.json(todo);
+    });
 }
 
 module.exports.delete=function(req,res){
     console.log(req.body);
-    return res.redirect('back');
+    Todo.find({},function(err,todo){
+        if(err){
+            console.log('error fetching data',err);
+            return;
+        }
+        return res.json(todo);
+    });
 }

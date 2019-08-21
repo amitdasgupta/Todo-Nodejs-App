@@ -135,8 +135,19 @@ body{
     margin-right: 2.5%;
     height: 14px;
     margin-top: 1px;
-    border-radius: 4px;
-    border: 1.5px solid grey;
+    position: relative;
+}
+
+.todo-list-item>div:first-child>div>input{
+    position: absolute;
+    top: -1px;
+    left: -2px;
+    transform: scale(1.5);
+}
+
+.todo-list-item>div:first-child>div>input[type="checkbox"]:checked{
+    
+    transform: scale(1.5);
 }
 
 .todo-list-item>div:first-child>div:last-child>div:first-child{
@@ -160,6 +171,8 @@ body{
 .todo-list-item>div:last-child{
     font-size: 2rem;
     padding: 10px 25px;
+    width: 75px;
+    text-align: center;
     color: white;
     font-family: monospace;
     border-radius: 5px;

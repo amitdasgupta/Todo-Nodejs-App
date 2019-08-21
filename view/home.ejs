@@ -48,28 +48,34 @@
             </section>
             </form>
             <section id='todo-list'>
+                <%for(todo of todo_list){%>
                 <div class='todo-list-item'>
+                    <div>
                      <div>
-                     <div>
-                         
+                      <input type="checkbox" value="<%= todo._id%>"> 
                      </div>
                      <div>
-                         <div>Why not add a task?</div>
+                         <div><%= todo.description%></div>
                          <div>
                              <i class="far fa-calendar-alt"></i>
-                             <div>August 20,2019</div>
+                             <div><%= todo.date%></div>
                          </div>
                      </div>
                      </div>
                      <div>
-                         OFFICE
+                         <%= todo.category%>
                      </div>
-                </div>
+                    </div>
+                <% }%>
             </section>
         </div>
-    <script src="./js/home.js">
-        
-    </script>
+        <%# scripts %>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script src="./js/home.js">
+</script>
     </body>
 </html>
 
