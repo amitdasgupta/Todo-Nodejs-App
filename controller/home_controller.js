@@ -24,12 +24,6 @@ module.exports.add=function(req,res){
             return;
         }
         console.log('*************',newTodo);
-    });
-    Todo.find({},function(err,todo){
-        if(err){
-            console.log('error fetching data',err);
-            return;
-        }
         return res.json(todo);
     });
 }
