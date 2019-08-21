@@ -2,15 +2,14 @@ const express=require('express');
 const port=8000;
 const app=express();
 
-//body parser
+const db=require('./config/mongoose');
 
+//body parser
 var bodyParser = require('body-parser')
 
 // set up view engine
 app.set('view engine','ejs');
 app.set('views','./view')
-
-
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
