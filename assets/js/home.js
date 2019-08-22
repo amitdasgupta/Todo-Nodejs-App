@@ -79,7 +79,6 @@ function addTodo(event){
        date:todoDate.val()
     },
     success: function (response) {
-      console.log('response',response);
       let todoList=$('#todo-list');
       let todoItem=$(document.createElement('div')).addClass('todo-list-item');
       todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'></div><div><div>"+
@@ -87,25 +86,10 @@ function addTodo(event){
       todoDate.val()+"</div></div></div></div><div>"+
         todoCategory.val()+"</div></div>");
       $(todoList).append(todoItem);
-      let todoListCategory=$('#todo-list>.todo-list-item:last-child>div:last-child');
-      if(todoCategory.val()=='work')
-      todoListCategory.addClass('work');
-      else
-      if(todoCategory.val()=='office')
-      todoListCategory.addClass('office');
-      else
-      if(todoCategory.val()=='family')
-      todoListCategory.addClass('family');
-      else
-      if(todoCategory.val()=='trips')
-      todoListCategory.addClass('trips');
-      else
-      if(todoCategory.val()=='meetings')
-      todoListCategory.addClass('meetings');
-      else
-      if(todoCategory.val()=='other')
-      todoListCategory.addClass('other');
-
+      $('#todo-list>.todo-list-item:last-child>div:last-child').addClass(todoCategory.val());
+      $(todoCategory).val('');
+      $(todoDate).val('');
+      $(todoDescription).val('');
     }
   });
 }
@@ -115,5 +99,47 @@ $('#todo-operations-add').on('mousedown',addTodo);
 $('#todo-operations-add').on('mouseup',function(){
       $(this).css({
         backgroundColor: '#424040',
+      });
+});
+
+// todo operations delete
+
+function deleteTodo(event){
+  event.preventDefault();
+
+  let selectedCheckbox=[];
+  $('.todo-list-item>div>div>input:checkbox:checked').each(function(){
+      selectedCheckbox.push($(this).val());
+  });
+  if(selectedCheckbox.length==0){
+    alert('Nothing to delete');
+    return;
+  }
+  $(this).css({
+    backgroundColor: 'rgb(255, 73, 73)',
+  });9
+
+   // jquery ajax call
+   console.log(selectedCheckbox);
+  $.ajax({
+    type: "post",
+    url: "http://localhost:8000/delete",
+    data: {
+        items:JSON.stringify(selectedCheckbox)
+    },
+    success: function (response) {
+      $('.todo-list-item>div>div>input:checkbox:checked').each(function(){
+      $(this).closest(".todo-list-item").remove();
+       });
+    }
+  });
+}
+
+
+$('#todo-operations-delete').on('mousedown',deleteTodo);
+
+$('#todo-operations-delete').on('mouseup',function(){
+      $(this).css({
+        backgroundColor: '#ef1313',
       });
 });

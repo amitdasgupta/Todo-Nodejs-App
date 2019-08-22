@@ -14,6 +14,7 @@ module.exports.home=function(req,res){
 };
 
 module.exports.add=function(req,res){
+    console.log(req.body);
     Todo.create({
      description:req.body.description,
      category:req.body.category,
@@ -29,12 +30,14 @@ module.exports.add=function(req,res){
 }
 
 module.exports.delete=function(req,res){
-    console.log(req.body);
-    Todo.find({},function(err,todo){
-        if(err){
-            console.log('error fetching data',err);
-            return;
+    Todo.deleteMany({_id:
+        {
+            $in:JSON.parse(req.body.items)
         }
-        return res.json(todo);
+    },function(err,todo){
+         if(err){
+            console.log('cannot delete items',err);
+         }
+         return res.json(todo);
     });
 }
