@@ -1,3 +1,23 @@
+// checkbox check event
+
+$(document).ready(function() {
+  $('.todo-list-item>div>div>input:checkbox').on('mousedown',function(){
+    console.log('checkbox pressed')
+     if ($(this).is(':checked')) {
+         $(this).closest('.todo-list-item>div').find('.todo-list-describe').css({
+          textDecoration: 'none',
+         });
+     }
+     else
+     {
+      $(this).closest('.todo-list-item').find('.todo-list-describe').css({
+        textDecoration: 'line-through',
+       });
+     }
+  });
+});
+
+
 // changing  background  color on focus
 $('#todo-description>input').on('focusin',function(){
     $('#todo-description').css({
@@ -81,7 +101,7 @@ function addTodo(event){
     success: function (response) {
       let todoList=$('#todo-list');
       let todoItem=$(document.createElement('div')).addClass('todo-list-item');
-      todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'></div><div><div>"+
+      todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'><i class='fas fa-check-square'></i></div><div class=todo-list-describe ><div>"+
       todoDescription.val()+"</div><div><i class='far fa-calendar-alt'></i><div>"+
       todoDate.val()+"</div></div></div></div><div>"+
         todoCategory.val()+"</div></div>");
@@ -90,6 +110,22 @@ function addTodo(event){
       $(todoCategory).val('');
       $(todoDate).val('');
       $(todoDescription).val('');
+
+
+      $('#todo-list>.todo-list-item:last-child>div>div>input:checkbox').on('mousedown',function(){
+        console.log('checkbox pressed')
+         if ($(this).is(':checked')) {
+             $(this).closest('.todo-list-item>div').find('.todo-list-describe').css({
+              textDecoration: 'none',
+             });
+         }
+         else
+         {
+          $(this).closest('.todo-list-item').find('.todo-list-describe').css({
+            textDecoration: 'line-through',
+           });
+         }
+      });
     }
   });
 }
@@ -143,3 +179,5 @@ $('#todo-operations-delete').on('mouseup',function(){
         backgroundColor: '#ef1313',
       });
 });
+
+
