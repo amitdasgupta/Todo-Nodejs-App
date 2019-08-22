@@ -94,8 +94,16 @@ function addTodo(event){
     backgroundColor: 'rgb(131, 128, 128)',
   });
 
+  // giving notification of new element created
 
-
+  new Noty({
+    theme:'sunset',
+    type: 'success',
+    layout: 'center',
+    text: 'Succesfully added todo!',
+    timeout:'2500',
+    progressBar:true
+  }).show();
 
   // jquery ajax call
   $.ajax({
@@ -178,10 +186,18 @@ function deleteTodo(event){
     dangerMode: true,
   })
   .then((willDelete) => {
+
+
+    // notification of deleting items
     if (willDelete) {
-      swal("Yay! your todos are removed!", {
-        icon: "success",
-      });
+      new Noty({
+        theme:'sunset',
+        type: 'error',
+        layout: 'center',
+        text: 'Succesfully deleted todo!',
+        timeout:'2500',
+        progressBar:true
+        }).show();
 
          // jquery ajax call
           $.ajax({

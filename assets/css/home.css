@@ -120,6 +120,8 @@ body{
 
 #todo-list{
     padding-bottom: 50px;
+    max-height: 40vh;
+    overflow-y: auto;
 }
 
 .todo-list-item{
