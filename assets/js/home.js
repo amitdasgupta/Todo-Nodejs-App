@@ -82,18 +82,22 @@ function addTodo(event){
   let todoCategory=$('#todo-details-category');
   let todoDate=$('#todo-details-date');
   if(todoCategory.val()==''||todoDescription.val()==''||todoDate.val()==''){
+    // sweet alert
     swal({
-      title: "Good job!",
-      text: "You clicked the button!",
-      icon: "warning",
+      title: "Fields Empty",
+      text: "Please Fill all the fields!",
+      icon: "error",
     });
     return;
   }
   $(this).css({
     backgroundColor: 'rgb(131, 128, 128)',
   });
-  // jquery ajax call
 
+
+
+
+  // jquery ajax call
   $.ajax({
     type: "post",
     url: "http://localhost:8000/add",
@@ -152,27 +156,52 @@ function deleteTodo(event){
       selectedCheckbox.push($(this).val());
   });
   if(selectedCheckbox.length==0){
-    alert('Nothing to delete');
+    // sweet alert
+    swal({
+      title: "Nothing To Delete",
+      text: "Please select items to delete!",
+      icon: "error",
+    });
     return;
   }
   $(this).css({
     backgroundColor: 'rgb(255, 73, 73)',
-  });9
+  });
 
-   // jquery ajax call
-   console.log(selectedCheckbox);
-  $.ajax({
-    type: "post",
-    url: "http://localhost:8000/delete",
-    data: {
-        items:JSON.stringify(selectedCheckbox)
-    },
-    success: function (response) {
-      $('.todo-list-item>div>div>input:checkbox:checked').each(function(){
-      $(this).closest(".todo-list-item").remove();
-       });
+  // are you sure sweet alert
+
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover these Todos!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Yay! your todos are removed!", {
+        icon: "success",
+      });
+
+         // jquery ajax call
+          $.ajax({
+            type: "post",
+            url: "http://localhost:8000/delete",
+            data: {
+                items:JSON.stringify(selectedCheckbox)
+            },
+            success: function (response) {
+              $('.todo-list-item>div>div>input:checkbox:checked').each(function(){
+              $(this).closest(".todo-list-item").remove();
+              });
+            }
+          });
+    } else {
+      swal("Your todos are safe!");
+      return;
     }
   });
+
 }
 
 
