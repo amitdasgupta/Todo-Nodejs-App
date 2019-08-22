@@ -9,7 +9,7 @@ body{
     background-color: white;
     display: flex;
     flex-direction: column; 
-    width:800px;  
+    width:700px;  
 }
 
 #todo>header{
@@ -149,9 +149,37 @@ body{
     transform: scale(1.5);
 }
 
+
+/* checkbox styling */
+
+.todo-list-item>div:first-child>div>input[type="checkbox"]~i{
+    position: absolute;
+    color: #88d5ce;
+    left: 2px;
+    top: 2px;
+    transform: scale(1.6);
+    display: none;
+}
+
 .todo-list-item>div:first-child>div>input[type="checkbox"]:checked{
     
     transform: scale(1.5);
+}
+
+/* this makes checkbox to color change   */
+
+.todo-list-item>div:first-child>div>input[type="checkbox"]:checked{
+    opacity: 0;
+    z-index: 10;
+    transform: scale(1.5);
+}
+
+.todo-list-item>div:first-child>div>input[type="checkbox"]:checked~i{
+    display: block;
+}
+
+.todo-list-item>div:first-child>div>input[type="checkbox"]:not(:checked)~i{
+    display: none;
 }
 
 .todo-list-item>div:first-child>div:last-child>div:first-child{
