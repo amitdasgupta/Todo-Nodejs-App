@@ -82,12 +82,30 @@ function addTodo(event){
       console.log('response',response);
       let todoList=$('#todo-list');
       let todoItem=$(document.createElement('div')).addClass('todo-list-item');
-      let todoItemDetails=$(document.createElement('div'));
-      $(todoList).append(todoItem).append();
-      $(todoItemDetails).appendTo(todoItem);
-      let todoItemCheckbox=$(document.createElement('div'))
-      .append(document.createElement('input').type('checkbox').value(response._id));
-      let todoItemDetails_date=$(document.createElement('div'));
+      todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'></div><div><div>"+
+      todoDescription.val()+"</div><div><i class='far fa-calendar-alt'></i><div>"+
+      todoDate.val()+"</div></div></div></div><div>"+
+        todoCategory.val()+"</div></div>");
+      $(todoList).append(todoItem);
+      let todoListCategory=$('#todo-list>.todo-list-item:last-child>div:last-child');
+      if(todoCategory.val()=='work')
+      todoListCategory.addClass('work');
+      else
+      if(todoCategory.val()=='office')
+      todoListCategory.addClass('office');
+      else
+      if(todoCategory.val()=='family')
+      todoListCategory.addClass('family');
+      else
+      if(todoCategory.val()=='trips')
+      todoListCategory.addClass('trips');
+      else
+      if(todoCategory.val()=='meetings')
+      todoListCategory.addClass('meetings');
+      else
+      if(todoCategory.val()=='other')
+      todoListCategory.addClass('other');
+
     }
   });
 }
