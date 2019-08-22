@@ -82,7 +82,11 @@ function addTodo(event){
   let todoCategory=$('#todo-details-category');
   let todoDate=$('#todo-details-date');
   if(todoCategory.val()==''||todoDescription.val()==''||todoDate.val()==''){
-    alert('Please add all the fields');
+    swal({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "warning",
+    });
     return;
   }
   $(this).css({

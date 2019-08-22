@@ -144,7 +144,7 @@ body{
 
 .todo-list-item>div:first-child>div>input{
     position: absolute;
-    top: -1px;
+    top: 1px;
     left: -2px;
     transform: scale(1.5);
 }
@@ -154,7 +154,7 @@ body{
 
 .todo-list-item>div:first-child>div>input[type="checkbox"]~i{
     position: absolute;
-    color: #88d5ce;
+    color: #06b8a8;
     left: 2px;
     top: 2px;
     transform: scale(1.6);
