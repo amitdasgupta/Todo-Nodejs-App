@@ -14,7 +14,6 @@ module.exports.home=function(req,res){
 };
 
 module.exports.add=function(req,res){
-    console.log(req.body);
     Todo.create({
      description:req.body.description,
      category:req.body.category,
@@ -24,7 +23,6 @@ module.exports.add=function(req,res){
             console.log(`error in creating new entry:${err}`);
             return;
         }
-        console.log('*************',newTodo);
         return res.json(todo);
     });
 }

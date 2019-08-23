@@ -2,7 +2,6 @@
 
 $(document).ready(function() {
   $('.todo-list-item>div>div>input:checkbox').on('mousedown',function(){
-    console.log('checkbox pressed')
      if ($(this).is(':checked')) {
          $(this).closest('.todo-list-item>div').find('.todo-list-describe').css({
           textDecoration: 'none',
@@ -129,7 +128,6 @@ function addTodo(event){
 
 
       $('#todo-list>.todo-list-item:last-child>div>div>input:checkbox').on('mousedown',function(){
-        console.log('checkbox pressed')
          if ($(this).is(':checked')) {
              $(this).closest('.todo-list-item>div').find('.todo-list-describe').css({
               textDecoration: 'none',
