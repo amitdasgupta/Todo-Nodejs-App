@@ -114,6 +114,7 @@ function addTodo(event){
        date:todoDate.val()
     },
     success: function (response) {
+      console.log(response._id);
       let todoList=$('#todo-list');
       let todoItem=$(document.createElement('div')).addClass('todo-list-item');
       todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'><i class='fas fa-check-square'></i></div><div class=todo-list-describe ><div>"+

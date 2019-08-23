@@ -23,11 +23,12 @@ module.exports.add=function(req,res){
             console.log(`error in creating new entry:${err}`);
             return;
         }
-        return res.json(todo);
+        return res.json(newTodo);
     });
 }
 
 module.exports.delete=function(req,res){
+    console.log(JSON.parse(req.body.items));
     Todo.deleteMany({_id:
         {
             $in:JSON.parse(req.body.items)
