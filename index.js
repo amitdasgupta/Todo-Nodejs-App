@@ -1,5 +1,5 @@
 const express=require('express');
-const port= process.env.PORT || 8080;
+const port= 8000;
 const app=express();
 
 const db=require('./config/mongoose');
@@ -20,7 +20,7 @@ app.use(bodyParser.json())
 app.use('/',require('./routes'));
 app.use(express.static('./assets'))
 
-app.listen(port,'0.0.0.0',function(err){
+app.listen(port,function(err){
    if(err){
        console.log(`error:${err}`);
        return;
