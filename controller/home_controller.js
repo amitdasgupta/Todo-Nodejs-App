@@ -1,5 +1,6 @@
 const Todo=require('../model/todo');
 
+// To render homepage
 module.exports.home=function(req,res){
       Todo.find({},function(err,todo){
           if(err){
@@ -13,6 +14,8 @@ module.exports.home=function(req,res){
       });
 };
 
+
+// To add a item to list
 module.exports.add=function(req,res){
     Todo.create({
      description:req.body.description,
@@ -27,6 +30,7 @@ module.exports.add=function(req,res){
     });
 }
 
+// To delete a item from list
 module.exports.delete=function(req,res){
     console.log(JSON.parse(req.body.items));
     Todo.deleteMany({_id:
