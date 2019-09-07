@@ -1,5 +1,4 @@
-// checkbox check event
-
+// checkbox check event handled here to make text line-through on beimg checked
 $(document).ready(function() {
   $('.todo-list-item>div>div>input:checkbox').on('mousedown',function(){
      if ($(this).is(':checked')) {
@@ -17,7 +16,7 @@ $(document).ready(function() {
 });
 
 
-// changing  background  color on focus
+// changing  background  color on focus for input description
 $('#todo-description>input').on('focusin',function(){
     $('#todo-description').css({
       backgroundColor: '#d7d7d7',
@@ -36,6 +35,7 @@ $('#todo-description>input').on('focusout',function(){
   });
 });
 
+// changing  background  color on focus for input category
 $('#todo-details #todo-details-category').on('focusin',function(){
   $('#todo-details>div:first-child').css({
     backgroundColor: '#d7d7d7',
@@ -54,6 +54,7 @@ $('#todo-details #todo-details-category').on('focusout',function(){
   });
 });
 
+// changing  background  color on focus for input date
 $('#todo-details #todo-details-date').on('focusin',function(){
   $('#todo-details>div:last-child').css({
     backgroundColor: '#d7d7d7',
@@ -74,7 +75,6 @@ $(this).css({
 
 
 // function to add new task
-
 function addTodo(event){
   event.preventDefault()
   let todoDescription=$('#todo-description>input');
@@ -89,12 +89,13 @@ function addTodo(event){
     });
     return;
   }
+
+  // changing background color of button here on click
   $(this).css({
     backgroundColor: 'rgb(131, 128, 128)',
   });
 
   // giving notification of new element created
-
   new Noty({
     theme:'sunset',
     type: 'success',
@@ -116,6 +117,8 @@ function addTodo(event){
     success: function (response) {
       console.log(response._id);
       let todoList=$('#todo-list');
+
+      // creating new todo item here
       let todoItem=$(document.createElement('div')).addClass('todo-list-item');
       todoItem.html("<div><div><input type='checkbox' value='"+response._id+"'><i class='fas fa-check-square'></i></div><div class=todo-list-describe ><div>"+
       todoDescription.val()+"</div><div><i class='far fa-calendar-alt'></i><div>"+
@@ -127,7 +130,7 @@ function addTodo(event){
       $(todoDate).val('');
       $(todoDescription).val('');
 
-
+      // adding line-through feature to new todo item here
       $('#todo-list>.todo-list-item:last-child>div>div>input:checkbox').on('mousedown',function(){
          if ($(this).is(':checked')) {
              $(this).closest('.todo-list-item>div').find('.todo-list-describe').css({
@@ -145,6 +148,7 @@ function addTodo(event){
   });
 }
 
+// activating todo add operation here
 $('#todo-operations-add').on('mousedown',addTodo);
 
 $('#todo-operations-add').on('mouseup',function(){
@@ -154,7 +158,6 @@ $('#todo-operations-add').on('mouseup',function(){
 });
 
 // todo operations delete
-
 function deleteTodo(event){
   event.preventDefault();
 
@@ -163,7 +166,7 @@ function deleteTodo(event){
       selectedCheckbox.push($(this).val());
   });
   if(selectedCheckbox.length==0){
-    // sweet alert
+    // sweet alert if none checkbox is selected
     swal({
       title: "Nothing To Delete",
       text: "Please select items to delete!",
@@ -216,10 +219,9 @@ function deleteTodo(event){
       return;
     }
   });
-
 }
 
-
+// activating todo delete here
 $('#todo-operations-delete').on('mousedown',deleteTodo);
 
 $('#todo-operations-delete').on('mouseup',function(){
