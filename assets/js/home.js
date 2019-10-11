@@ -115,7 +115,6 @@ function addTodo(event){
        date:todoDate.val()
     },
     success: function (response) {
-      console.log(response._id);
       let todoList=$('#todo-list');
 
       // creating new todo item here
@@ -178,7 +177,7 @@ function deleteTodo(event){
     backgroundColor: 'rgb(255, 73, 73)',
   });
 
-  // are you sure sweet alert
+  // are you sure sweet alert item
 
   swal({
     title: "Are you sure?",

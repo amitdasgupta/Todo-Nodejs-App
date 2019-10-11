@@ -211,7 +211,7 @@ body{
 }
 
 .todo-list-item>div:last-child{
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 10px 25px;
     width: 75px;
     text-align: center;
